@@ -4,17 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Color;
+
+
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
 import static android.view.View.*;
 
-public class MainActivity extends AppCompatActivity implements MyAdapter.OnPartyListener {
+public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnParty
 
         RecyclerView view = findViewById(R.id.list);
 
-        MyAdapter adapter = new MyAdapter(getData());
+        MyAdapter adapter = new MyAdapter(getData(),this);
 
         view.setAdapter(adapter);
 
@@ -47,10 +46,4 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnParty
       return data;
     }
 
-
-    @Override
-    public void OnPartyClick(int position) {
-       Intent intent = new Intent(this, ViewActivity.class);
-       intent.putExtra("",data.getData);
-    }
 }

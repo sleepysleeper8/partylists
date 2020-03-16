@@ -1,25 +1,28 @@
 package com.example.myapplication;
 
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<Party> data;
+    Context mycontext;
 
-    MyAdapter(ArrayList<Party> data) {
+    MyAdapter(ArrayList<Party> data, Context context) {
         this.data = data;
+        this.mycontext=context;
     }
 
     //Создается ViewHolder для каждого предмета в списке (только 1 раз)
@@ -35,8 +38,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     //Соединяем данные с ViewHolder
     //Кладем данные во View
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, final int position) {
         holder.bind(data.get(position));
+        holder.firstLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mycontext,ViewActivity.class);
+                intent.putExtra("party_name",data.get(position).name);
+                intent.putExtra("party_description",data.get(position).description);
+                mycontext.startActivity(intent);
+
+            }
+        });
     }
 
     //Сколько предметов в списке
@@ -51,7 +64,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView partyDateTextView;
         TextView partyTimeTextView;
         TextView partyDistanceTextView;
-        Button buttonInfo;
+        ConstraintLayout firstLayout;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,7 +75,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             partyDateTextView = itemView.findViewById(R.id.textViewPartyDate);
             partyTimeTextView = itemView.findViewById(R.id.textViewPartyTime);
             partyDistanceTextView = itemView.findViewById(R.id.textViewPartyDistance);
-            buttonInfo = itemView.findViewById((R.id.buttonInfo));
+            firstLayout=itemView.findViewById(R.id.linearLayout);
 
         }
 
@@ -74,8 +88,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         }
     }
-    public interface  OnPartyListener{
-        void OnPartyClick(int position);
-    }
-
 }
