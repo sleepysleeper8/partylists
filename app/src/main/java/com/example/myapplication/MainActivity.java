@@ -38,11 +38,10 @@ public class MainActivity extends AppCompatActivity  {
 
     public ArrayList<Party>getData(){
         ArrayList<Party> data = new ArrayList<>();
-        data.add(new Party("сходка любителей троицких басов","клуб приколов","66 янв.","18:00","0 m"," Чувак, ты думал что-то здесь будет?"));
-        data.add(new Party("смотрим мемы про котов"," детский сад 78","30 фев.","9:00","1 km","Чувак, ты думал что-то здесь будет?"));
-        data.add(new Party("вскрываемся из=за кр по матеше за 5класс","школа 22","хз","тоже хз","2 km","Чувак, ты думал что-то здесь будет?"));
-        data.add(new Party("находим смысл жизни","нет такого места","никогда","см.дату","бесконечность","Чувак, ты думал что-то здесь будет?"));
-        data.add(new Party("плачем","здесь","сегодня","сейчас","0","Чувак, ты думал что-то здесь будет?"));
+        data.add(new Party("Сходка любителей чая(и тортиков с клубничкой)"," Энгельса пр. 128","02.04","17:00","1 km","Самое милое  и уютное мероприятие этой весны!Сидим, пьем чай с конфетами и другими сладостями и обсуждаем его. (:","https://i.imgur.com/c7xYSfa.jpg","https://i.pinimg.com/originals/02/a7/51/02a751d523fb3a9bd8edec05f81b0ffb.jpg"));
+        data.add(new Party("Подготовка к контрольной по линейным уравнениям  за 5 класс","Школа №22","09.04","11:00","2 km","Готовимся вместе к контрольной  по математике. ЫЫЫЫыыы матеша  (( ","https://st3.depositphotos.com/3535225/17521/i/1600/depositphotos_175211364-stock-photo-puzzled-sad-writing-pupil-sitting.jpg","https://sun9-66.userapi.com/c846017/v846017255/19ab6/rAtWyKlIg5M.jpg"));
+        data.add(new Party("Смотрим Таксиста Скорсезе","Приморский пр.147","08.04","13:00","600m"," Тема одиночества в старых фильмах ","https://top100project.files.wordpress.com/2013/03/taxi-driver.jpg","https://pbs.twimg.com/media/C4Yqkt4UYAAAZgM?format=jpg&name=900x900"));
+        data.add(new Party("Открытие клуба любителей собак","Лиговский пр.64","13.04","16:00","8km"," Зацените эту нереальную организацию","https://www.irishtimes.com/polopoly_fs/1.4104282.1575446932!/image/image.jpg_gen/derivatives/box_620_330/image.jpg","https://sun9-62.userapi.com/c853620/v853620393/cf1b6/dMN-uZ9zd-w.jpg"));
       return data;
     }
 
